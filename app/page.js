@@ -118,7 +118,7 @@ export default function HomePage() {
       icon: <MessageCircle size={18} />,
     },
     { id: "podcasts", label: "Media", icon: <Mic size={18} /> },
-    { id: "publications", label: "Publications", icon: <FileText size={18} /> },
+    // { id: "publications", label: "Publications", icon: <FileText size={18} /> },
     { id: "contact", label: "Contact", icon: <Phone size={18} /> },
   ];
 
@@ -132,13 +132,13 @@ export default function HomePage() {
   };
 
   return (
-    <main className="bg-gradient-to-br from-gray-50 to-slate-100 text-slate-800 min-h-screen w-full relative">
+    <main className="bg-gradient-to-br from-slate-50 to-blue-50 text-slate-800 min-h-screen w-full relative">
       {/* Fixed Navigation Header */}
       <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-teal-700">AN</span>
+              <span className="text-2xl font-bold text-blue-600">AN</span>
               <span className="ml-2 hidden md:block text-lg font-medium text-slate-700">
                 Aviral Namdeo
               </span>
@@ -152,8 +152,8 @@ export default function HomePage() {
                   onClick={() => scrollToSection(item.id)}
                   className={`flex items-center px-2 py-1 text-sm font-medium rounded transition-colors ${
                     activeSection === item.id
-                      ? "text-teal-700 bg-teal-50"
-                      : "text-slate-600 hover:text-teal-600 hover:bg-gray-100"
+                      ? "text-blue-600 bg-blue-50"
+                      : "text-slate-600 hover:text-blue-500 hover:bg-slate-100"
                   }`}
                 >
                   <span className="mr-1">{item.icon}</span>
@@ -178,7 +178,7 @@ export default function HomePage() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-200">
+          <div className="md:hidden bg-white border-t border-slate-200">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
                 <button
@@ -186,8 +186,8 @@ export default function HomePage() {
                   onClick={() => scrollToSection(item.id)}
                   className={`flex items-center w-full px-3 py-2 rounded text-left ${
                     activeSection === item.id
-                      ? "bg-teal-50 text-teal-700"
-                      : "text-slate-600 hover:bg-gray-100 hover:text-teal-600"
+                      ? "bg-blue-50 text-blue-600"
+                      : "text-slate-600 hover:bg-slate-100 hover:text-blue-500"
                   }`}
                 >
                   <span className="mr-2">{item.icon}</span>
@@ -199,10 +199,10 @@ export default function HomePage() {
         )}
       </header>
 
-      {/* Hero Section - Rich teal to navy gradient for a professional but distinctive look */}
+      {/* Hero Section - Blue gradient with orange accents for A1 Academy branding */}
       <section
         id="home"
-        className="w-full bg-gradient-to-r from-teal-700 via-teal-800 to-slate-900 text-white pt-28 pb-20 px-4 md:px-20"
+        className="w-full bg-gradient-to-r from-blue-600 via-blue-700 to-slate-900 text-white pt-28 pb-20 px-4 md:px-20"
       >
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -212,28 +212,29 @@ export default function HomePage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-teal-200">
+              <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">
                 Aviral Namdeo
               </h1>
-              <p className="mt-6 text-xl md:text-2xl text-teal-100">
-                Educator | Mentor | Podcast Host | Author
+              <p className="mt-6 text-xl md:text-2xl text-blue-100">
+                Teacher • Mentor • Educationist
               </p>
-              <p className="mt-4 text-lg text-gray-200">
-                Transforming education with over 20 years of innovative teaching
-                experience
+              <p className="mt-4 text-lg text-slate-100">
+                For over 26 years, I've helped students not just score better—but think deeper, explore fearlessly, and fall in love with learning.
               </p>
               <div className="mt-10 flex flex-wrap gap-4 justify-center md:justify-start">
-                <Button className="bg-white text-teal-700 hover:bg-teal-50 px-6 py-2 rounded-full cursor-pointer font-medium">
-                  Book a Seminar
+                <Button className="bg-orange-500 text-white hover:bg-orange-600 px-6 py-2 rounded-full cursor-pointer font-medium shadow-lg">
+                  Know My Method
                 </Button>
-                <Button
-                  variant="outline"
-                  className="border-white text-teal-700 hover:bg-gray-200 cursor-pointer px-6 py-2 rounded-full font-medium"
+                <button
+                  className="border-2 border-white bg-transparent text-white hover:bg-white hover:text-blue-600 cursor-pointer px-6 py-2 rounded-full font-medium transition-all"
                   onClick={() => scrollToSection("contact")}
                 >
-                  Get in Touch
-                </Button>
+                  Connect on LinkedIn
+                </button>
               </div>
+              <p className="mt-8 text-sm md:text-base text-blue-100 italic">
+                Founder, A1 Academy & Lively Lessons | Batch Topper – Education Leadership Program, IIM Kolkata | ECIS Certified | PhD Scholar (Education Leadership)
+              </p>
             </motion.div>
             <motion.div
               className="flex justify-center"
@@ -241,9 +242,9 @@ export default function HomePage() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-teal-300/30 shadow-2xl">
+              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-orange-400/30 shadow-2xl">
                 <img
-                  src="/profile_image.jpeg"
+                  src="/aviral_about1.png"
                   alt="Aviral Namdeo"
                   className="w-full h-full object-cover"
                 />
@@ -263,52 +264,44 @@ export default function HomePage() {
           viewport={{ once: true }}
         >
           <div>
-            <h2 className="text-4xl font-bold text-teal-700 mb-4 flex items-center gap-2">
-              <Sparkles className="text-teal-600" /> About Aviral
+            <h2 className="text-4xl font-bold text-blue-600 mb-4 flex items-center gap-2">
+              <Sparkles className="text-orange-500" /> My Method
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-4">
-              Aviral Namdeo brings a rare combination of passion, wisdom, and
-              innovation to education. With over two decades of experience
-              across prestigious institutions in India, he has consistently
-              inspired students to think independently, embrace challenges, and
-              grow as confident individuals.
+              Learning should never feel heavy. Over the years, I've built a framework that helps students learn smarter, retain longer, and perform with confidence — whether in a classroom or online.
             </p>
             <p className="text-lg text-slate-700 leading-relaxed mb-4">
-              His teaching methodology combines traditional wisdom with modern
-              technology, creating an immersive learning environment that
-              addresses diverse learning styles. Recognized with multiple
-              national teaching awards, Aviral has transformed the academic
-              journeys of more than 5,000 students throughout his career.
+              This method has guided thousands of CBSE students to perform better and rediscover joy in learning.
             </p>
             <ul className="mt-6 grid grid-cols-2 gap-y-3 gap-x-2">
               <li className="flex items-center text-slate-700">
-                <span className="h-2 w-2 rounded-full bg-teal-500 mr-2"></span>
-                Student-first approach
+                <span className="h-2 w-2 rounded-full bg-orange-500 mr-2"></span>
+                Understand
               </li>
               <li className="flex items-center text-slate-700">
-                <span className="h-2 w-2 rounded-full bg-teal-500 mr-2"></span>
-                Experiential learning
+                <span className="h-2 w-2 rounded-full bg-orange-500 mr-2"></span>
+                Simplify
               </li>
               <li className="flex items-center text-slate-700">
-                <span className="h-2 w-2 rounded-full bg-teal-500 mr-2"></span>
-                Technology integration
+                <span className="h-2 w-2 rounded-full bg-orange-500 mr-2"></span>
+                Strengthen
               </li>
               <li className="flex items-center text-slate-700">
-                <span className="h-2 w-2 rounded-full bg-teal-500 mr-2"></span>
-                Research-based methods
+                <span className="h-2 w-2 rounded-full bg-orange-500 mr-2"></span>
+                Student-centered approach
               </li>
               <li className="flex items-center text-slate-700">
-                <span className="h-2 w-2 rounded-full bg-teal-500 mr-2"></span>
-                Holistic development focus
+                <span className="h-2 w-2 rounded-full bg-orange-500 mr-2"></span>
+                Spaced revision
               </li>
               <li className="flex items-center text-slate-700">
-                <span className="h-2 w-2 rounded-full bg-teal-500 mr-2"></span>
-                Inclusive teaching practices
+                <span className="h-2 w-2 rounded-full bg-orange-500 mr-2"></span>
+                Retrieval practice
               </li>
             </ul>
           </div>
           <img
-            src="/images/teaching.jpg"
+            src="/teaching1.jpg"
             alt="Aviral Teaching"
             className="rounded-2xl shadow-xl"
           />
@@ -316,7 +309,7 @@ export default function HomePage() {
       </section>
 
       {/* Philosophy Section */}
-      <section id="philosophy" className="bg-slate-50 py-24 px-4 md:px-20">
+      <section id="philosophy" className="bg-blue-50/30 py-24 px-4 md:px-20">
         <motion.div
           className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center"
           initial={{ opacity: 0, y: 50 }}
@@ -325,55 +318,48 @@ export default function HomePage() {
           viewport={{ once: true }}
         >
           <img
-            src="/images/education.jpg"
+            src="/teaching2.jpg"
             alt="Education Philosophy"
             className="rounded-2xl shadow-xl"
           />
           <div>
-            <h2 className="text-4xl font-bold text-teal-700 mb-4 flex items-center gap-2">
-              <BookOpen className="text-teal-600" /> Philosophy of Education
+            <h2 className="text-4xl font-bold text-blue-600 mb-4 flex items-center gap-2">
+              <BookOpen className="text-orange-500" /> Education isn't about marks — it's about meaning.
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-4">
-              Mr. Namdeo believes that true education goes beyond grades—it is
-              about character, curiosity, and creativity. He emphasizes moral
-              values, scientific thinking, and helping students find their
-              unique voice in an increasingly complex world.
+              Every learner deserves teaching that respects their pace, curiosity, and individuality. The best classrooms aren't silent — they're alive with curiosity, laughter, mistakes, and discovery.
             </p>
             <p className="text-lg text-slate-700 leading-relaxed mb-4">
-              His educational philosophy is built on three core pillars:
+              That's the philosophy behind both A1 Academy and Lively Lessons — where learning connects with life.
             </p>
             <div className="space-y-4 mb-6">
-              <div className="p-4 bg-white rounded-lg shadow-sm border-l-4 border-teal-500">
-                <h3 className="font-bold text-teal-700">
-                  Curiosity-Driven Learning
+              <div className="p-4 bg-white rounded-lg shadow-sm border-l-4 border-orange-500">
+                <h3 className="font-bold text-orange-600">
+                  Understand
                 </h3>
                 <p className="text-slate-600">
-                  Nurturing the innate curiosity of students through questions
-                  rather than rote memorization
+                  Every learner has a different rhythm. Before I teach, I study how a student learns — visual, auditory, reading/writing, or kinesthetic — so the method fits the mind, not the other way around.
                 </p>
               </div>
-              <div className="p-4 bg-white rounded-lg shadow-sm border-l-4 border-teal-500">
-                <h3 className="font-bold text-teal-700">
-                  Emotional Intelligence
+              <div className="p-4 bg-white rounded-lg shadow-sm border-l-4 border-orange-500">
+                <h3 className="font-bold text-orange-600">
+                  Simplify
                 </h3>
                 <p className="text-slate-600">
-                  Developing self-awareness and interpersonal skills alongside
-                  academic knowledge
+                  Complex topics are broken into relatable stories, visual connections, and micro-concepts. When students see why something works, they stop memorizing and start understanding.
                 </p>
               </div>
-              <div className="p-4 bg-white rounded-lg shadow-sm border-l-4 border-teal-500">
-                <h3 className="font-bold text-teal-700">
-                  Practical Application
+              <div className="p-4 bg-white rounded-lg shadow-sm border-l-4 border-orange-500">
+                <h3 className="font-bold text-orange-600">
+                  Strengthen
                 </h3>
                 <p className="text-slate-600">
-                  Connecting theoretical concepts to real-world challenges and
-                  opportunities
+                  Learning lasts only when it's reinforced. I use spaced revision, retrieval practice, and timed challenges — not to create pressure, but to make progress consistent.
                 </p>
               </div>
             </div>
-            <blockquote className="italic text-teal-700 border-l-4 border-teal-400 pl-4">
-              "Every child is a story waiting to be told. My job is to help them
-              write it with confidence and purpose."
+            <blockquote className="italic text-orange-600 border-l-4 border-orange-500 pl-4">
+              "Teaching minds is easy. Touching hearts takes intent."
             </blockquote>
           </div>
         </motion.div>
@@ -382,22 +368,22 @@ export default function HomePage() {
       {/* YouTube Video Section */}
       <section className="max-w-6xl mx-auto py-24 px-4 md:px-20">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-teal-700 mb-4 flex items-center justify-center gap-2">
-            <Video className="text-teal-600" /> Watch Aviral in Action
+          <h2 className="text-4xl font-bold text-blue-600 mb-4 flex items-center justify-center gap-2">
+            <Video className="text-orange-500" /> Watch Aviral in Action
           </h2>
-          <p className="text-lg text-slate-700 max-w-3xl mx-auto">
+          {/* <p className="text-lg text-slate-700 max-w-3xl mx-auto">
             Get to know my teaching philosophy and approach through this recent
             talk on "Reimagining Education for the 21st Century"
-          </p>
+          </p> */}
         </div>
         <div className="aspect-w-16 aspect-h-9">
           <div className="w-full mx-auto max-w-4xl shadow-2xl rounded-xl overflow-hidden">
             <iframe
               className="w-full aspect-video"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-              title="Aviral Namdeo: Reimagining Education"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              src="https://www.youtube.com/embed/2oK_pMhHVWE"
+              title="9th Force and Laws of motion 15 (conservation of momentum)"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
             ></iframe>
           </div>
@@ -407,105 +393,104 @@ export default function HomePage() {
       {/* Achievements Section */}
       <section
         id="achievements"
-        className="bg-gradient-to-br from-teal-50 to-slate-100 py-24 px-4 md:px-20"
+        className="bg-gradient-to-br from-blue-50 to-slate-50 py-24 px-4 md:px-20"
       >
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-teal-700 mb-12 text-center flex items-center justify-center gap-2">
-            <Award className="text-teal-600" /> Achievements & Milestones
+          <h2 className="text-4xl font-bold text-blue-600 mb-12 text-center flex items-center justify-center gap-2">
+            <Award className="text-orange-500" /> Achievements & Milestones
           </h2>
 
           <div className="grid md:grid-cols-4 gap-8">
-            <Card className="text-center p-8 shadow-md border-t-4 border-teal-500 hover:shadow-lg transition-all">
+            <Card className="text-center p-8 shadow-md border-t-4 border-orange-500 hover:shadow-lg hover:shadow-orange-200 transition-all">
               <CardContent>
-                <School className="mx-auto text-teal-600 mb-4" size={40} />
+                <School className="mx-auto text-orange-500 mb-4" size={40} />
                 <h3 className="text-xl font-semibold text-slate-800">
-                  20+ Years Experience
+                  26+ Years Experience
                 </h3>
                 <p className="text-slate-600 mt-2">
-                  Taught over 5,000 students across diverse educational settings
+                  Founder, A1 Academy (1998–present)
                 </p>
               </CardContent>
             </Card>
-            <Card className="text-center p-8 shadow-md border-t-4 border-teal-500 hover:shadow-lg transition-all">
+            <Card className="text-center p-8 shadow-md border-t-4 border-orange-500 hover:shadow-lg hover:shadow-orange-200 transition-all">
               <CardContent>
-                <Video className="mx-auto text-teal-600 mb-4" size={40} />
+                <Video className="mx-auto text-orange-500 mb-4" size={40} />
                 <h3 className="text-xl font-semibold text-slate-800">
-                  100+ Video Lectures
+                  Lively Lessons
                 </h3>
                 <p className="text-slate-600 mt-2">
-                  Educational content with millions of cumulative views
+                  Online CBSE learning platform
                 </p>
               </CardContent>
             </Card>
-            <Card className="text-center p-8 shadow-md border-t-4 border-teal-500 hover:shadow-lg transition-all">
+            <Card className="text-center p-8 shadow-md border-t-4 border-orange-500 hover:shadow-lg hover:shadow-orange-200 transition-all">
               <CardContent>
                 <CalendarCheck
-                  className="mx-auto text-teal-600 mb-4"
+                  className="mx-auto text-orange-500 mb-4"
                   size={40}
                 />
                 <h3 className="text-xl font-semibold text-slate-800">
-                  50+ Workshops
+                  IIM Kolkata
                 </h3>
                 <p className="text-slate-600 mt-2">
-                  Professional development sessions for educators nationwide
+                  Batch Topper – Education Leadership Program
                 </p>
               </CardContent>
             </Card>
-            <Card className="text-center p-8 shadow-md border-t-4 border-teal-500 hover:shadow-lg transition-all">
+            <Card className="text-center p-8 shadow-md border-t-4 border-orange-500 hover:shadow-lg hover:shadow-orange-200 transition-all">
               <CardContent>
-                <BookMarked className="mx-auto text-teal-600 mb-4" size={40} />
+                <BookMarked className="mx-auto text-orange-500 mb-4" size={40} />
                 <h3 className="text-xl font-semibold text-slate-800">
-                  12 Publications
+                  PhD Scholar
                 </h3>
                 <p className="text-slate-600 mt-2">
-                  Books and research papers on educational innovation
+                  Education Leadership
                 </p>
               </CardContent>
             </Card>
           </div>
 
           <div className="mt-16">
-            <h3 className="text-2xl font-bold text-teal-700 mb-6">
-              Awards & Recognition
+            <h3 className="text-2xl font-bold text-blue-600 mb-6">
+              Credentials & Recognition
             </h3>
             <div className="space-y-4">
-              <div className="bg-white p-6 rounded-lg shadow-sm flex items-start gap-4">
-                <div className="mt-1 text-teal-600">
+              <div className="bg-white p-6 rounded-lg shadow-sm flex items-start gap-4 hover:shadow-md hover:shadow-blue-100 transition-shadow">
+                <div className="mt-1 text-orange-500">
                   <Award size={24} />
                 </div>
                 <div>
                   <h4 className="font-semibold text-slate-800">
-                    National Educator Excellence Award (2023)
+                    ECIS Certified
                   </h4>
                   <p className="text-slate-600">
-                    Recognized for outstanding contribution to STEM education
+                    International Education Practices
                   </p>
                 </div>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm flex items-start gap-4">
-                <div className="mt-1 text-teal-600">
+              <div className="bg-white p-6 rounded-lg shadow-sm flex items-start gap-4 hover:shadow-md hover:shadow-blue-100 transition-shadow">
+                <div className="mt-1 text-orange-500">
                   <Award size={24} />
                 </div>
                 <div>
                   <h4 className="font-semibold text-slate-800">
-                    Innovation in Teaching Methodology (2021)
+                    Graduate, Operations Leadership Intensive
                   </h4>
                   <p className="text-slate-600">
-                    For developing the "Concept-Connect" teaching framework
+                    QuantumLeap
                   </p>
                 </div>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm flex items-start gap-4">
-                <div className="mt-1 text-teal-600">
+              <div className="bg-white p-6 rounded-lg shadow-sm flex items-start gap-4 hover:shadow-md hover:shadow-blue-100 transition-shadow">
+                <div className="mt-1 text-orange-500">
                   <Award size={24} />
                 </div>
                 <div>
                   <h4 className="font-semibold text-slate-800">
-                    Digital Education Pioneer (2019)
+                    Published Research Paper
                   </h4>
                   <p className="text-slate-600">
-                    Awarded for bridging the digital divide in rural educational
-                    settings
+                    On student engagement and learning strategies
                   </p>
                 </div>
               </div>
@@ -520,21 +505,21 @@ export default function HomePage() {
         className="bg-white py-24 px-4 md:px-20 relative"
       >
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-teal-700 mb-12 text-center flex items-center justify-center gap-2">
-            <Users className="text-teal-600" /> Student & Parent Testimonials
+          <h2 className="text-4xl font-bold text-blue-600 mb-12 text-center flex items-center justify-center gap-2">
+            <Users className="text-orange-500" /> Student & Parent Testimonials
           </h2>
 
           <button
             onClick={scrollPrev}
-            className="absolute top-[56%] left-4 md:left-10 -translate-y-1/2 p-3 bg-white shadow-md rounded-full hover:bg-teal-50 z-10"
+            className="absolute top-[56%] left-4 md:left-10 -translate-y-1/2 p-3 bg-white shadow-md rounded-full hover:bg-blue-50 z-10"
           >
-            <ChevronLeft className="text-teal-700" />
+            <ChevronLeft className="text-blue-600" />
           </button>
           <button
             onClick={scrollNext}
-            className="absolute top-[56%] right-4 md:right-10 -translate-y-1/2 p-3 bg-white shadow-md rounded-full hover:bg-teal-50 z-10"
+            className="absolute top-[56%] right-4 md:right-10 -translate-y-1/2 p-3 bg-white shadow-md rounded-full hover:bg-blue-50 z-10"
           >
-            <ChevronRight className="text-teal-700" />
+            <ChevronRight className="text-blue-600" />
           </button>
 
           <div
@@ -546,17 +531,17 @@ export default function HomePage() {
                 key={idx}
                 className="w-[calc(100vw-4rem)] max-w-[480px] sm:min-w-[350px] md:min-w-[400px] flex-shrink-0"
               >
-                <Card className="bg-gradient-to-b from-teal-50 to-slate-50 shadow-lg p-6 h-full rounded-2xl border border-slate-100">
+                <Card className="bg-gradient-to-b from-blue-50 to-slate-50 shadow-lg p-6 h-full rounded-2xl border-l-4 border-orange-500">
                   <CardContent className="p-2">
-                    <Quote className="text-teal-400 mb-2" size={28} />
+                    <Quote className="text-orange-500 mb-2" size={28} />
                     <p className="text-slate-700 mb-6 italic">"{t.text}"</p>
                     <div className="flex items-center">
-                      <div className="bg-teal-200 h-12 w-12 rounded-full flex items-center justify-center text-teal-700 font-bold text-lg">
+                      <div className="bg-orange-500 h-12 w-12 rounded-full flex items-center justify-center text-white font-bold text-lg">
                         {t.name.charAt(0)}
                       </div>
                       <div className="ml-3">
                         <p className="font-semibold text-slate-800">{t.name}</p>
-                        <p className="text-sm text-teal-600">{t.role}</p>
+                        <p className="text-sm text-blue-600">{t.role}</p>
                       </div>
                     </div>
                   </CardContent>
@@ -569,8 +554,8 @@ export default function HomePage() {
 
       {/* Podcasts & Media Section */}
       <section id="podcasts" className="max-w-6xl mx-auto py-24 px-4 md:px-20">
-        <h2 className="text-4xl font-bold text-teal-700 mb-12 flex items-center gap-2">
-          <Mic className="text-teal-600" /> Media & Featured Content
+        <h2 className="text-4xl font-bold text-blue-600 mb-12 flex items-center gap-2">
+          <Mic className="text-orange-500" /> Media & Featured Content
         </h2>
 
         <div className="mb-16">
@@ -606,9 +591,9 @@ export default function HomePage() {
             ].map((podcast, index) => (
               <Card
                 key={index}
-                className="overflow-hidden shadow-md rounded-2xl hover:shadow-lg transition-shadow"
+                className="overflow-hidden shadow-md rounded-2xl hover:shadow-lg hover:shadow-blue-200 transition-shadow"
               >
-                <div className="h-40 bg-gradient-to-r from-teal-400 to-teal-600 p-6 flex items-center justify-center text-white">
+                <div className="h-40 bg-gradient-to-r from-blue-500 to-blue-600 p-6 flex items-center justify-center text-white">
                   <Mic size={64} />
                 </div>
                 <CardContent className="p-6">
@@ -618,13 +603,13 @@ export default function HomePage() {
                     <span className="mx-1">•</span>
                     <span>{podcast.date}</span>
                   </div>
-                  <h3 className="text-xl font-semibold text-teal-700 mb-2">
+                  <h3 className="text-xl font-semibold text-blue-600 mb-2">
                     {podcast.title}
                   </h3>
                   <p className="text-slate-600 mb-4">{podcast.description}</p>
                   <Button
                     variant="outline"
-                    className="w-full text-teal-700 border-teal-300 hover:bg-teal-50 hover:border-teal-400 transition-colors"
+                    className="w-full text-orange-600 border-orange-400 hover:bg-orange-50 hover:border-orange-500 transition-colors"
                     asChild
                   >
                     <a href={podcast.link} target="_blank">
@@ -637,13 +622,13 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div>
+        {/* <div>
           <h3 className="text-2xl font-bold text-slate-800 mb-8">
             Media Appearances
           </h3>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow">
-              <div className="mt-1 text-teal-600 flex-shrink-0">
+            <div className="bg-white p-6 rounded-lg shadow-sm flex items-start gap-4 hover:shadow-md hover:shadow-blue-100 transition-shadow">
+              <div className="mt-1 text-orange-500 flex-shrink-0">
                 <Globe size={24} />
               </div>
               <div>
@@ -660,8 +645,8 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow">
-              <div className="mt-1 text-teal-600 flex-shrink-0">
+            <div className="bg-white p-6 rounded-lg shadow-sm flex items-start gap-4 hover:shadow-md hover:shadow-blue-100 transition-shadow">
+              <div className="mt-1 text-orange-500 flex-shrink-0">
                 <Video size={24} />
               </div>
               <div>
@@ -677,8 +662,8 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow">
-              <div className="mt-1 text-teal-600 flex-shrink-0">
+            <div className="bg-white p-6 rounded-lg shadow-sm flex items-start gap-4 hover:shadow-md hover:shadow-blue-100 transition-shadow">
+              <div className="mt-1 text-orange-500 flex-shrink-0">
                 <Mic size={24} />
               </div>
               <div>
@@ -694,8 +679,8 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow">
-              <div className="mt-1 text-teal-600 flex-shrink-0">
+            <div className="bg-white p-6 rounded-lg shadow-sm flex items-start gap-4 hover:shadow-md hover:shadow-blue-100 transition-shadow">
+              <div className="mt-1 text-orange-500 flex-shrink-0">
                 <BookOpen size={24} />
               </div>
               <div>
@@ -712,14 +697,14 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </section>
 
       {/* Publications Section */}
-      <section id="publications" className="bg-slate-50 py-24 px-4 md:px-20">
+      {/* <section id="publications" className="bg-slate-50 py-24 px-4 md:px-20">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-teal-700 mb-12 flex items-center gap-2">
-            <FileText className="text-teal-600" /> Publications & Research
+          <h2 className="text-4xl font-bold text-blue-600 mb-12 flex items-center gap-2">
+            <FileText className="text-orange-500" /> Publications & Research
           </h2>
 
           <div className="grid md:grid-cols-2 gap-x-12 gap-y-16">
@@ -763,7 +748,7 @@ export default function HomePage() {
             ].map((publication, index) => (
               <div key={index} className="flex flex-col md:flex-row gap-6">
                 <div className="w-full md:w-36 h-48 bg-white rounded-lg shadow-md overflow-hidden flex-shrink-0">
-                  <div className="w-full h-full bg-gradient-to-b from-teal-400 to-teal-600 flex items-center justify-center p-4 text-white">
+                  <div className="w-full h-full bg-gradient-to-b from-blue-500 to-blue-600 flex items-center justify-center p-4 text-white">
                     {publication.type === "Book" ? (
                       <BookOpen size={48} />
                     ) : (
@@ -772,13 +757,13 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="flex-grow">
-                  <span className="text-sm font-medium px-3 py-1 rounded-full bg-teal-100 text-teal-700 inline-block mb-2">
+                  <span className="text-sm font-medium px-3 py-1 rounded-full bg-orange-100 text-orange-700 inline-block mb-2">
                     {publication.type} • {publication.year}
                   </span>
                   <h3 className="text-xl font-semibold text-slate-800 mb-2">
                     {publication.title}
                   </h3>
-                  <p className="text-sm text-teal-600 mb-1">
+                  <p className="text-sm text-orange-600 mb-1">
                     {publication.publisher}
                   </p>
                   <p className="text-slate-600">{publication.description}</p>
@@ -787,21 +772,19 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Contact Section */}
       <section
         id="contact"
-        className="bg-gradient-to-b from-teal-50 to-white py-24 px-4 md:px-20"
+        className="bg-gradient-to-b from-blue-50 to-white py-24 px-4 md:px-20"
       >
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-teal-700 mb-4 text-center flex justify-center items-center gap-2">
-            <Mail className="text-teal-600" /> Get In Touch
+          <h2 className="text-4xl font-bold text-blue-600 mb-4 text-center flex justify-center items-center gap-2">
+            <Mail className="text-orange-500" /> Get In Touch
           </h2>
           <p className="text-lg text-slate-700 mb-12 text-center max-w-2xl mx-auto">
-            Want to collaborate on an educational project, book a seminar, or
-            discuss how we can work together to enhance learning experiences?
-            I'd love to hear from you!
+            If you believe learning should feel alive—let's connect.
           </p>
 
           <div className="grid md:grid-cols-2 gap-12">
@@ -865,7 +848,7 @@ export default function HomePage() {
                     rows={5}
                   />
                 </div>
-                <Button className="bg-teal-700 hover:bg-teal-800 text-white px-6 py-2 rounded-lg font-medium transition-colors w-full">
+                <Button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-medium transition-colors w-full shadow-md">
                   Send Message
                 </Button>
               </form>
@@ -878,30 +861,39 @@ export default function HomePage() {
                 </h3>
                 <div className="space-y-4">
                   <div className="flex items-start gap-4">
-                    <div className="mt-1 bg-teal-100 p-2 rounded-full text-teal-600">
+                    <div className="mt-1 bg-orange-100 p-2 rounded-full text-orange-600">
                       <Mail size={20} />
                     </div>
                     <div>
                       <h4 className="font-semibold text-slate-700">Email</h4>
-                      <p className="text-teal-600">contact@aviralnamdeo.com</p>
+                      <p className="text-orange-600">contact@aviralnamdeo.com</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <div className="mt-1 bg-teal-100 p-2 rounded-full text-teal-600">
+                    <div className="mt-1 bg-orange-100 p-2 rounded-full text-orange-600">
                       <Phone size={20} />
                     </div>
                     <div>
                       <h4 className="font-semibold text-slate-700">Phone</h4>
-                      <p className="text-teal-600">+91 98765 43210</p>
+                      <p className="text-orange-600">+91 8319430029</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <div className="mt-1 bg-teal-100 p-2 rounded-full text-teal-600">
+                    <div className="mt-1 bg-orange-100 p-2 rounded-full text-orange-600">
                       <Globe size={20} />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-slate-700">Website</h4>
-                      <p className="text-teal-600">www.aviralnamdeo.com</p>
+                      <h4 className="font-semibold text-slate-700">Location</h4>
+                      <p className="text-orange-600">Based in Jabalpur, India</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="mt-1 bg-orange-100 p-2 rounded-full text-orange-600">
+                      <School size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-slate-700">Founder</h4>
+                      <p className="text-orange-600">A1 Academy | Lively Lessons</p>
                     </div>
                   </div>
                 </div>
@@ -914,19 +906,19 @@ export default function HomePage() {
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <span className="text-slate-700">Guest Lectures:</span>
-                    <span className="text-teal-600">Limited availability</span>
+                    <span className="text-orange-600 font-medium">Limited availability</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-slate-700">Workshops:</span>
-                    <span className="text-teal-600">Now booking for 2025</span>
+                    <span className="text-orange-600 font-medium">Now booking for 2025</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-slate-700">Consulting:</span>
-                    <span className="text-teal-600">Available online</span>
+                    <span className="text-orange-600 font-medium">Available online</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-slate-700">Media Interviews:</span>
-                    <span className="text-teal-600">Case by case basis</span>
+                    <span className="text-orange-600 font-medium">Case by case basis</span>
                   </div>
                 </div>
               </div>
@@ -936,12 +928,12 @@ export default function HomePage() {
       </section>
 
       {/* Newsletter Section */}
-      <section className="bg-teal-700 text-white py-16 px-4 md:px-20">
+      {/* <section className="bg-blue-600 text-white py-16 px-4 md:px-20">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">
             Join My Educational Newsletter
           </h2>
-          <p className="text-teal-100 mb-8">
+          <p className="text-blue-100 mb-8">
             Stay updated with the latest educational insights, teaching
             resources, and upcoming events.
           </p>
@@ -951,25 +943,26 @@ export default function HomePage() {
               className="bg-transparent w-full text-white placeholder-white border border-white rounded-md pl-4"
             />
 
-            <Button className="bg-white text-teal-700 hover:bg-teal-100 transition-colors">
+            <Button className="bg-orange-500 text-white hover:bg-orange-600 transition-colors shadow-md">
               Subscribe
             </Button>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Footer */}
       <footer className="bg-slate-900 text-white py-12 px-4 md:px-20">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-3 gap-10">
             <div>
-              <h3 className="text-2xl font-bold text-teal-400 mb-4">
+              <h3 className="text-2xl font-bold text-orange-400 mb-4">
                 Aviral Namdeo
               </h3>
-              <p className="text-gray-400">
-                Dedicated to transforming education through innovative teaching
-                methods, technology integration, and student-centered
-                approaches.
+              <p className="text-gray-400 mb-4">
+                If you believe learning should feel alive—let's connect.
+              </p>
+              <p className="text-gray-400 text-sm italic">
+                "Teaching minds is easy. Touching hearts takes intent."
               </p>
             </div>
             <div>
@@ -979,7 +972,7 @@ export default function HomePage() {
                   <li key={item.id}>
                     <button
                       onClick={() => scrollToSection(item.id)}
-                      className="text-gray-400 hover:text-teal-400 transition-colors flex items-center gap-2"
+                      className="text-gray-400 hover:text-orange-400 transition-colors flex items-center gap-2"
                     >
                       {item.icon}
                       {item.label}
@@ -993,7 +986,7 @@ export default function HomePage() {
               <div className="flex space-x-4 mb-4">
                 <a
                   href="#"
-                  className="bg-slate-700 hover:bg-teal-600 transition-colors p-2 rounded-full"
+                  className="bg-slate-700 hover:bg-orange-500 transition-colors p-2 rounded-full"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -1007,7 +1000,7 @@ export default function HomePage() {
                 </a>
                 <a
                   href="#"
-                  className="bg-slate-700 hover:bg-teal-600 transition-colors p-2 rounded-full"
+                  className="bg-slate-700 hover:bg-orange-500 transition-colors p-2 rounded-full"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -1021,7 +1014,7 @@ export default function HomePage() {
                 </a>
                 <a
                   href="#"
-                  className="bg-slate-700 hover:bg-teal-600 transition-colors p-2 rounded-full"
+                  className="bg-slate-700 hover:bg-orange-500 transition-colors p-2 rounded-full"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -1035,7 +1028,7 @@ export default function HomePage() {
                 </a>
                 <a
                   href="#"
-                  className="bg-slate-700 hover:bg-teal-600 transition-colors p-2 rounded-full"
+                  className="bg-slate-700 hover:bg-orange-500 transition-colors p-2 rounded-full"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -1061,7 +1054,7 @@ export default function HomePage() {
       {/* Back to top button */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="fixed bottom-6 right-6 bg-teal-600 text-white p-3 rounded-full shadow-lg hover:bg-teal-700 transition-colors z-40"
+        className="fixed bottom-6 right-6 bg-orange-500 text-white p-3 rounded-full shadow-lg hover:bg-orange-600 transition-colors z-40"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
