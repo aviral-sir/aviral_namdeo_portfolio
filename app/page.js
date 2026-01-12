@@ -503,6 +503,19 @@ export default function HomePage() {
                   </p>
                 </div>
               </div>
+              <div className="bg-white p-6 rounded-lg shadow-sm flex items-start gap-4 hover:shadow-md hover:shadow-blue-100 transition-shadow">
+                <div className="mt-1 text-orange-500">
+                  <UserCheck size={24} />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-slate-800">
+                    Army Public School Kampti
+                  </h4>
+                  <p className="text-slate-600">
+                    Trained students on how to study effectively and teachers on student engagement and class management
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
