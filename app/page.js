@@ -552,9 +552,9 @@ export default function HomePage() {
 
       {/* Podcasts & Media Section */}
       <section id="podcasts" className="max-w-6xl mx-auto py-24 px-4 md:px-20">
-        <h2 className="text-4xl font-bold text-blue-600 mb-12 flex items-center gap-2">
+        {/* <h2 className="text-4xl font-bold text-blue-600 mb-12 flex items-center gap-2">
           <Mic className="text-orange-500" /> Media & Featured Content
-        </h2>
+        </h2> */}
 
         {/* <div className="mb-16">
           <h3 className="text-2xl font-bold text-slate-800 mb-8">
