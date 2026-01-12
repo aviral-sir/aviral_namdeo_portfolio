@@ -38,6 +38,7 @@ export default function HomePage() {
   const [scrollX, setScrollX] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [currentGalleryIndex, setCurrentGalleryIndex] = useState(0);
 
   const scrollPrev = () => {
     if (carouselRef.current) {
@@ -77,6 +78,33 @@ export default function HomePage() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Auto-advance gallery slideshow
+  useEffect(() => {
+    const galleryImages = [
+      {
+        src: "/teaching1.JPG",
+        title: "Engaging Classroom Sessions",
+        description: "Interactive teaching methods that make learning enjoyable"
+      },
+      {
+        src: "/teaching2.JPG",
+        title: "Hands-On Learning",
+        description: "Practical demonstrations that bring concepts to life"
+      },
+      {
+        src: "/aviral_about1.png",
+        title: "Passionate Educator",
+        description: "26+ years of dedicated teaching excellence"
+      }
+    ];
+
+    const interval = setInterval(() => {
+      setCurrentGalleryIndex((prev) => (prev + 1) % galleryImages.length);
+    }, 2000); // Change image every 3 seconds
+
+    return () => clearInterval(interval);
   }, []);
 
   const testimonials = [
@@ -795,6 +823,90 @@ export default function HomePage() {
           </div>
         </div>
       </section> */}
+
+      {/* Photo Gallery Section */}
+      <section id="gallery" className="bg-gradient-to-br from-slate-50 to-blue-50 py-24 px-4 md:px-20">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-blue-600 mb-4 text-center flex items-center justify-center gap-2">
+            <Video className="text-orange-500" /> Gallery
+          </h2>
+          <p className="text-lg text-slate-700 mb-12 text-center max-w-2xl mx-auto">
+            Moments from the classroom that capture the joy of learning
+          </p>
+
+          <div className="relative max-w-4xl mx-auto">
+            {/* Main Image Display */}
+            <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+              {[
+                {
+                  src: "/teaching1.JPG",
+                  title: "Engaging Classroom Sessions",
+                  description: "Interactive teaching methods that make learning enjoyable"
+                },
+                {
+                  src: "/teaching2.JPG",
+                  title: "Hands-On Learning",
+                  description: "Practical demonstrations that bring concepts to life"
+                },
+                {
+                  src: "/aviral_about1.png",
+                  title: "Passionate Educator",
+                  description: "26+ years of dedicated teaching excellence"
+                }
+              ].map((image, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-opacity duration-1000 ${index === currentGalleryIndex ? "opacity-100" : "opacity-0"
+                    }`}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.title}
+                    className="w-full h-full object-cover"
+                  />
+                  {/* Overlay with title and description */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-8">
+                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                      {image.title}
+                    </h3>
+                    <p className="text-lg text-white/90">
+                      {image.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Navigation Arrows */}
+            <button
+              onClick={() => setCurrentGalleryIndex((prev) => prev === 0 ? 2 : prev - 1)}
+              className="absolute top-1/2 left-4 -translate-y-1/2 p-3 bg-white/90 shadow-lg rounded-full hover:bg-white transition-all z-10"
+            >
+              <ChevronLeft className="text-blue-600" size={28} />
+            </button>
+            <button
+              onClick={() => setCurrentGalleryIndex((prev) => (prev + 1) % 3)}
+              className="absolute top-1/2 right-4 -translate-y-1/2 p-3 bg-white/90 shadow-lg rounded-full hover:bg-white transition-all z-10"
+            >
+              <ChevronRight className="text-blue-600" size={28} />
+            </button>
+
+            {/* Dots Indicator */}
+            <div className="flex justify-center gap-3 mt-6">
+              {[0, 1, 2].map((index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentGalleryIndex(index)}
+                  className={`h-3 rounded-full transition-all ${index === currentGalleryIndex
+                    ? "w-8 bg-orange-500"
+                    : "w-3 bg-slate-300 hover:bg-slate-400"
+                    }`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Contact Section */}
       <section
