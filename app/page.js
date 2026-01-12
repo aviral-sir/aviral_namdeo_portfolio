@@ -150,11 +150,10 @@ export default function HomePage() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`flex items-center px-2 py-1 text-sm font-medium rounded transition-colors ${
-                    activeSection === item.id
+                  className={`flex items-center px-2 py-1 text-sm font-medium rounded transition-colors ${activeSection === item.id
                       ? "text-blue-600 bg-blue-50"
                       : "text-slate-600 hover:text-blue-500 hover:bg-slate-100"
-                  }`}
+                    }`}
                 >
                   <span className="mr-1">{item.icon}</span>
                   {item.label}
@@ -184,11 +183,10 @@ export default function HomePage() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`flex items-center w-full px-3 py-2 rounded text-left ${
-                    activeSection === item.id
+                  className={`flex items-center w-full px-3 py-2 rounded text-left ${activeSection === item.id
                       ? "bg-blue-50 text-blue-600"
                       : "text-slate-600 hover:bg-slate-100 hover:text-blue-500"
-                  }`}
+                    }`}
                 >
                   <span className="mr-2">{item.icon}</span>
                   {item.label}
@@ -301,7 +299,7 @@ export default function HomePage() {
             </ul>
           </div>
           <img
-            src="/teaching1.jpg"
+            src="/teaching1.JPG"
             alt="Aviral Teaching"
             className="rounded-2xl shadow-xl"
           />
@@ -318,7 +316,7 @@ export default function HomePage() {
           viewport={{ once: true }}
         >
           <img
-            src="/teaching2.jpg"
+            src="/teaching2.JPG"
             alt="Education Philosophy"
             className="rounded-2xl shadow-xl"
           />
@@ -866,7 +864,7 @@ export default function HomePage() {
                     </div>
                     <div>
                       <h4 className="font-semibold text-slate-700">Email</h4>
-                      <p className="text-orange-600">contact@aviralnamdeo.com</p>
+                      <p className="text-orange-600">namdeoaviral@gmail.com</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
