@@ -378,8 +378,8 @@ export default function HomePage() {
           <div className="w-full mx-auto max-w-4xl shadow-2xl rounded-xl overflow-hidden">
             <iframe
               className="w-full aspect-video"
-              src="https://www.youtube.com/embed/2oK_pMhHVWE"
-              title="9th Force and Laws of motion 15 (conservation of momentum)"
+              src="https://www.youtube.com/embed/nJv0RP1xTRI"
+              title="A 26 year Journey: Passionate Math & Science Teaching in the age of AI"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
@@ -486,7 +486,7 @@ export default function HomePage() {
                     Published Research Paper
                   </h4>
                   <p className="text-slate-600">
-                    On student engagement and learning strategies
+                    on underperformance of students and ways to improve them
                   </p>
                 </div>
               </div>
@@ -879,7 +879,7 @@ export default function HomePage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                  
+
                   </div>
                   <div className="flex items-start gap-4">
                     <div className="mt-1 bg-orange-100 p-2 rounded-full text-orange-600">
