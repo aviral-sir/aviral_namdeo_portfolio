@@ -251,7 +251,10 @@ export default function HomePage() {
                 For over 26 years, I've helped students not just score better—but think deeper, explore fearlessly, and fall in love with learning.
               </p>
               <div className="mt-10 flex flex-wrap gap-4 justify-center md:justify-start">
-                <Button className="bg-orange-500 text-white hover:bg-orange-600 px-6 py-2 rounded-full cursor-pointer font-medium shadow-lg">
+                <Button
+                  className="bg-orange-500 text-white hover:bg-orange-600 px-6 py-2 rounded-full cursor-pointer font-medium shadow-lg"
+                  onClick={() => scrollToSection("about")}
+                >
                   Know My Method
                 </Button>
                 <a
