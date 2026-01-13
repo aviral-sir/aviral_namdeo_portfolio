@@ -48,7 +48,7 @@ export default function HomePage() {
     { src: "/at_iim_calcutta.jpeg", title: "At IIM Calcutta", description: "" },
     { src: "/at_iit_delhi.jpeg", title: "At IIT Delhi", description: "" },
     { src: "/with_dr_vm_chariar.jpeg", title: "With Dr V M Chariar", description: "Prof IIT Delhi" },
-    { src: "/with_mr_rajiv_talreha.jpeg", title: "With Mr Rajiv Talreha", description: "Business Coach at Proficon Bengaluru" },
+    { src: "/with_mr_rajiv_talreha.jpeg", title: "With Mr Rajiv Talreja", description: "Business Coach at Proficon Bengaluru" },
     { src: "/at_jio_institute.jpeg", title: "At Jio Institute", description: "Navi Mumbai" },
     { src: "/with_helen_and_sarah.jpeg", title: "With Helen and Sarah", description: "Trainers - ECIS, Jio Institute" },
     { src: "/ayi_jio_institute_classroom.jpeg", title: "At Jio Institute class room", description: "" },
