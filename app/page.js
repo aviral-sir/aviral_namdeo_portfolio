@@ -50,7 +50,7 @@ export default function HomePage() {
     { src: "/with_mr_rajiv_talreha.jpeg", title: "With Mr Rajiv Talreha", description: "Business Coach at Proficon Bengaluru" },
     { src: "/at_jio_institute.jpeg", title: "At Jio Institute", description: "Navi Mumbai" },
     { src: "/with_helen_and_sarah.jpeg", title: "With Helen and Sarah", description: "Trainers - ECIS, Jio Institute" },
-    { src: "/ayi_jio_institute_classroom.jpeg", title: "Ayi Jio Institute class room", description: "" },
+    { src: "/ayi_jio_institute_classroom.jpeg", title: "At Jio Institute class room", description: "" },
     { src: "/at_t_hub_hyderabad.jpeg", title: "At T-Hub Hyderabad", description: "India's largest technology incubator" },
     { src: "/rewarding_badminton_players.jpeg", title: "Rewarding badminton players", description: "" },
     { src: "/delivering_speech_iim_calcutta.jpeg", title: "Delivering speech at IIM Calcutta", description: "" },
