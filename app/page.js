@@ -53,6 +53,30 @@ export default function HomePage() {
   const [currentGalleryIndex, setCurrentGalleryIndex] = useState(0);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [yearsOfExperience, setYearsOfExperience] = useState(getYearsOfExperience);
+  const [contactStatus, setContactStatus] = useState("idle"); // idle | sending | sent | error
+  const [contactError, setContactError] = useState("");
+
+  const handleContactSubmit = async (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
+    setContactStatus("sending");
+    setContactError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(result.error || "Failed to send message");
+      form.reset();
+      setContactStatus("sent");
+    } catch (err) {
+      setContactError(err.message || "Failed to send message");
+      setContactStatus("error");
+    }
+  };
 
   // Recompute on client mount so the count stays accurate over time
   useEffect(() => {
@@ -1101,7 +1125,7 @@ export default function HomePage() {
               <h3 className="text-2xl font-semibold text-slate-800 mb-6">
                 Send a Message
               </h3>
-              <form className="space-y-4">
+              <form className="space-y-4" onSubmit={handleContactSubmit}>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label
@@ -1112,6 +1136,9 @@ export default function HomePage() {
                     </label>
                     <Input
                       id="name"
+                      name="name"
+                      required
+                      maxLength={100}
                       placeholder="Your Name"
                       className="w-full"
                     />
@@ -1125,6 +1152,10 @@ export default function HomePage() {
                     </label>
                     <Input
                       id="email"
+                      name="email"
+                      type="email"
+                      required
+                      maxLength={254}
                       placeholder="your.email@example.com"
                       className="w-full"
                     />
@@ -1139,6 +1170,8 @@ export default function HomePage() {
                   </label>
                   <Input
                     id="subject"
+                    name="subject"
+                    maxLength={200}
                     placeholder="Subject"
                     className="w-full"
                   />
@@ -1150,16 +1183,33 @@ export default function HomePage() {
                   >
                     Message
                   </label>
-                  <Input
+                  <textarea
                     id="message"
+                    name="message"
+                    required
+                    maxLength={5000}
                     placeholder="Your message"
-                    className="w-full"
                     rows={5}
+                    className="w-full rounded-md border border-input bg-transparent px-3 py-2 text-base shadow-xs outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] md:text-sm placeholder:text-muted-foreground"
                   />
                 </div>
-                <Button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-medium transition-colors w-full shadow-md">
-                  Send Message
+                <Button
+                  type="submit"
+                  disabled={contactStatus === "sending"}
+                  className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-medium transition-colors w-full shadow-md disabled:opacity-60"
+                >
+                  {contactStatus === "sending" ? "Sending..." : "Send Message"}
                 </Button>
+                {contactStatus === "sent" && (
+                  <p className="text-sm text-green-600" role="status">
+                    Thank you! Your message has been sent.
+                  </p>
+                )}
+                {contactStatus === "error" && (
+                  <p className="text-sm text-red-600" role="alert">
+                    {contactError} Please try again.
+                  </p>
+                )}
               </form>
             </div>
 
